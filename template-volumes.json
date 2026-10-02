@@ -1,0 +1,5 @@
+{
+  "Postgres": { "name": "Database Data", "mountPath": "/var/lib/postgresql/data", "sizeMB": 5000 },
+  "Worker": null,
+  "Server": null
+}

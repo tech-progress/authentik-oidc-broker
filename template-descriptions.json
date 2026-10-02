@@ -1,0 +1,41 @@
+{
+  "Postgres": {
+    "PORT": "Private PostgreSQL listener; never publish a TCP proxy.",
+    "POSTGRES_DB": "Dedicated authentik database.",
+    "POSTGRES_USER": "Dedicated authentik database owner.",
+    "POSTGRES_PASSWORD": "Generate once and preserve; references feed both application services.",
+    "PGDATA": "Durable cluster subdirectory inside the database volume."
+  },
+  "Worker": {
+    "PORT": "Private recipe readiness endpoint; no public domain.",
+    "AUTHENTIK_SECRET_KEY": "Generate once; database gate refuses a different signing secret.",
+    "AUTHENTIK_BOOTSTRAP_PASSWORD": "Initial akadmin password, not a restart-time password rotation mechanism.",
+    "AUTHENTIK_BOOTSTRAP_TOKEN": "Initial privileged API token; revoke in authentik after confirming setup.",
+    "AUTHENTIK_BOOTSTRAP_EMAIL": "Set your real administrator email before empty-database bootstrap.",
+    "RECIPE_BOOTSTRAP_TIMEOUT": "Bounded initial migration/bootstrap wait, 30–1800 seconds.",
+    "AUTHENTIK_OUTPOSTS__DISCOVER": "Must remain false; Docker/Kubernetes discovery excluded.",
+    "AUTHENTIK_OUTPOSTS__DISABLE_EMBEDDED_OUTPOST": "Must remain true; proxy outposts excluded."
+  },
+  "Server": {
+    "PORT": "HTTP target 9000 behind Railway HTTPS termination.",
+    "AUTHENTIK_SECRET_KEY": "Stable reference to Worker's generated signing/encryption secret.",
+    "AUTHENTIK_LISTEN__TRUSTED_PROXY_CIDRS": "Trust only loopback and Railway internal proxy CIDR; validate forwarding in staging.",
+    "RECIPE_BOOTSTRAP_TIMEOUT": "Server binds nothing before durable worker approval; 30–1800 seconds."
+  },
+  "common": {
+    "AUTHENTIK_POSTGRESQL__HOST": "Private database hostname, not localhost.",
+    "AUTHENTIK_POSTGRESQL__PORT": "Private database port 5432.",
+    "AUTHENTIK_POSTGRESQL__NAME": "Reference to the durable database name.",
+    "AUTHENTIK_POSTGRESQL__USER": "Reference to the database owner.",
+    "AUTHENTIK_POSTGRESQL__PASSWORD": "Reference to the one generated database password.",
+    "AUTHENTIK_POSTGRESQL__SSLMODE": "Private-network plaintext database transport; assess compliance or add verified TLS.",
+    "AUTHENTIK_OUTPOSTS__DISCOVER": "False; never enable automatic outpost provisioning.",
+    "AUTHENTIK_OUTPOSTS__DISABLE_EMBEDDED_OUTPOST": "True; embedded reverse proxy excluded.",
+    "AUTHENTIK_DISABLE_STARTUP_ANALYTICS": "Disable upstream startup analytics.",
+    "AUTHENTIK_DISABLE_UPDATE_CHECK": "Updates are operator-reviewed immutable pins.",
+    "AUTHENTIK_ERROR_REPORTING__ENABLED": "Disable upstream error telemetry by default.",
+    "AUTHENTIK_LISTEN__HTTP": "IPv6/private-network capable HTTP listener on port 9000.",
+    "AUTHENTIK_LISTEN__HTTPS": "Loopback-only container TLS listener; Railway terminates external TLS.",
+    "AUTHENTIK_LISTEN__TRUSTED_PROXY_CIDRS": "Trusted forwarders; verify against deployment topology."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "directory": "authentik-oidc-broker",
+  "name": "authentik OIDC broker",
+  "category": "Authentication",
+  "description": "Worker-bootstrapped authentik OIDC broker with durable SQL state",
+  "icon": "https://goauthentik.io/img/icon.png",
+  "origins": [
+    { "name": "authentik", "url": "https://goauthentik.io/", "source": "https://github.com/goauthentik/authentik" },
+    { "name": "PostgreSQL", "url": "https://www.postgresql.org/", "source": "https://github.com/postgres/postgres" }
+  ],
+  "publicationStatus": "unpublished; production qualification incomplete"
+}

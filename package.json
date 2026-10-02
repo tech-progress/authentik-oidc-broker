@@ -1,0 +1,11 @@
+{
+  "name": "railway-authentik-oidc-broker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "bash scripts/verify.sh",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "devDependencies": { "railway": "3.6.0" }
+}

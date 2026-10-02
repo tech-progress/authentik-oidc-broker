@@ -1,0 +1,5 @@
+{
+  "Postgres": { "publicPort": null, "tcpProxies": [] },
+  "Worker": { "publicPort": null, "healthcheckPort": 9301, "tcpProxies": [] },
+  "Server": { "publicPort": 9000, "tcpProxies": [] }
+}
