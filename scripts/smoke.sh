@@ -19,7 +19,7 @@ export AUTHENTIK_BOOTSTRAP_PASSWORD="$(openssl rand -hex 24)"
 export AUTHENTIK_BOOTSTRAP_TOKEN="$(openssl rand -hex 32)"
 export AUTHENTIK_BOOTSTRAP_EMAIL=smoke@example.invalid
 project="authentik-broker-smoke-$(id -u)-$(date +%s)-$$"
-export RECIPE_IMAGE="${project}:1.0.0"
+export RECIPE_IMAGE="${project}:$(cat VERSION)"
 mkdir -p .artifacts
 artifacts="$(mktemp -d "${root}/.artifacts/${project}.XXXXXX")"
 compose=(docker compose -p "${project}" -f "${root}/compose.yaml")

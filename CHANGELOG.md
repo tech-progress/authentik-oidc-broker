@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 — 2026-10-02
+
+- Include the scoped recipe MIT notice in the Docker build context; upstream licenses remain unchanged.
+
 ## 1.0.0 — 2026-10-02
 
 - Initial unpublished recipe for authentik 2026.8.3 and PostgreSQL 16.14.
